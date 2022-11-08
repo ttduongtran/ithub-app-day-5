@@ -1,0 +1,25 @@
+p style="color: green" = notice
+h1 Posts
+#posts
+  table.table 
+    thead 
+      tr 
+        th Title
+        th Content
+        th Category type
+        th colspan="3" Actions
+    tbody 
+      - @posts.each do |post|
+        tr 
+          td = post.title
+          td = post.content
+          td = post.category.title
+          td 
+            = link_to "Show", post, class: 'btn btn-primary mx-2'
+            = link_to "Edit", edit_post_path(post), class: 'btn btn-primary mx-2'
+            = link_to "Destroy", post, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-primary mx-2'
+    / = render post
+    
+    / = link_to "Show this post", post
+= link_to "New post", new_post_path
+
