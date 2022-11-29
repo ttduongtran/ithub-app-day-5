@@ -7,6 +7,7 @@ h1 Posts
         th Title
         th Content
         th Category type
+        th status
         th colspan="3" Actions
     tbody 
       - @posts.each do |post|
@@ -14,6 +15,7 @@ h1 Posts
           td = post.title
           td = post.content
           td = post.category.title
+          td = post.status
           td 
             = link_to "Show", post, class: 'btn btn-primary mx-2'
             = link_to "Edit", edit_post_path(post), class: 'btn btn-primary mx-2'
